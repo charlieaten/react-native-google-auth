@@ -184,7 +184,7 @@ const withGoogleAuthIOS: ConfigPlugin<Options> = (config, options) => {
       iosConfig.modResults.GIDClientID = iosClientId;
 
       // Add URL scheme
-      const urlScheme = options.iosUrlScheme || iosClientId.split('.')[0];
+      const urlScheme = options.iosUrlScheme || iosClientId.split('.').reverse().join('.');
       if (urlScheme) {
         // Check if URL scheme already exists to prevent duplicates
         if (hasExistingUrlScheme(iosConfig.modResults, urlScheme)) {
